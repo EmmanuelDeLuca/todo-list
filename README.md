@@ -1,46 +1,41 @@
-# Getting Started with Create React App
+# MyTodo 📝
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição
 
-## Available Scripts
+O **MyTodo** é um aplicativo de lista de tarefas simples e dinâmico, desenvolvido com **React**, **TypeScript** e **SCSS**. O objetivo deste projeto foi criar uma lista de tarefas onde é possível adicionar, marcar como concluída e remover tarefas, com um contador que exibe o número de tarefas no total, as pendentes e as concluídas. Toda a lógica funciona dinamicamente, permitindo que as atualizações sejam refletidas em tempo real.
 
-In the project directory, you can run:
+## Funcionalidades
 
-### `npm start`
+- **Adicionar tarefas**: O usuário pode adicionar novas tarefas à lista.
+- **Marcar como concluída**: Cada tarefa pode ser marcada como concluída, alterando seu estilo e mudando a contagem de tarefas pendentes.
+- **Remover tarefas**: O usuário pode remover tarefas da lista, e as contagens de tarefas no total e pendentes são atualizadas automaticamente.
+- **Contagem dinâmica**: O número total de tarefas, o número de tarefas pendentes e o número de tarefas concluídas são exibidos e atualizados dinamicamente conforme as ações são realizadas.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tecnologias Utilizadas
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **React**: Framework JavaScript para construção da interface de usuário.
+- **TypeScript**: Superset do JavaScript que traz tipagem estática para o código, proporcionando maior segurança e legibilidade.
+- **SCSS**: Pré-processador CSS que permite o uso de variáveis, aninhamento e outras funcionalidades para um estilo mais organizado e escalável.
 
-### `npm test`
+## Como rodar o projeto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone o repositório:**
 
-### `npm run build`
+   ```bash
+   git clone https://github.com/seu-usuario/mytodo.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Instale as dependências:**
+Navegue até o diretório do projeto e execute o seguinte comando para instalar as dependências:
+   ```bash
+   yarn install 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Rodando o aplicativo:**
+Após instalar as dependências, rode o seguinte comando para iniciar o servidor de desenvolvimento:
+   ```bash
+   yarn start 
 
-### `npm run eject`
+4. **Acesse o projeto:**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   http://localhost:3000
