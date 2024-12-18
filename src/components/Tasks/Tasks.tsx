@@ -1,15 +1,10 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useContext, useState } from "react";
 import styles from "./styles.module.scss";
-
-interface Task {
-  title: string;
-  done: boolean;
-  id: number;
-}
+import { TasksContext } from "../../context/TasksContext";
 
 export const Tasks: React.FC = () => {
   const [taskTitle, setTaskTitle] = useState("");
-  const [tasks, setTask] = useState([] as Task[]);
+  const { tasks, setTask } = useContext(TasksContext);
 
   function handleSubmitAddTask(event: FormEvent) {
     event.preventDefault();
@@ -19,15 +14,40 @@ export const Tasks: React.FC = () => {
       return;
     }
 
-    setTask([
+    const newTasks = [
       ...tasks,
       {
         id: new Date().getTime(),
         title: taskTitle,
         done: false,
       },
-    ]);
+    ];
+
+    setTask(newTasks);
+    localStorage.setItem("tasks", JSON.stringify(newTasks));
+
     setTaskTitle("");
+  }
+
+  function handleToggleTaskStatus(taskId: number) {
+    const newTasks = tasks.map((task) => {
+      if (taskId === task.id) {
+        return {
+          ...task,
+          done: !task.done,
+        };
+      }
+
+      return task;
+    });
+
+    setTask(newTasks);
+  }
+
+  function handleRemoveTask(taskId: number) {
+    const newTasks = tasks.filter((task) => task.id !== taskId)
+
+    setTask(newTasks);
   }
 
   return (
@@ -49,8 +69,24 @@ export const Tasks: React.FC = () => {
         {tasks.map((task) => {
           return (
             <li key={task.id}>
-              <input type="checkbox" id={`task ${task.id}`} />
-              <label htmlFor={`task ${task.id}`}>{task.title}</label>
+              <input
+                type="checkbox"
+                id={`task ${task.id}`}
+                onChange={() => {
+                  handleToggleTaskStatus(task.id);
+                }}
+              />
+              <label
+                htmlFor={`task ${task.id}`}
+                className={task.done ? styles.done : ""}
+              >
+                {task.title}
+              </label>
+
+              <div>
+                <button onClick={() => {handleRemoveTask(task.id)}} className={styles.remover}>Remover</button>
+              </div>
+              
             </li>
           );
         })}
